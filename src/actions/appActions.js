@@ -1,0 +1,6 @@
+const TYPES = {
+  SERCH_VIDEOS: "SERCH_VIDEOS",
+  SELECT_VIDEO: "SELECT_VIDEO",
+};
+
+export { TYPES };

@@ -2,23 +2,12 @@ import React, { useReducer } from "react";
 import { Grid } from "@mui/material";
 import { SearchBar, VideoList, VideoDetail } from "./components";
 import youtubeFetch from "./api/youtubeFetch";
-import { videosInitialState, videosReducer } from "./reducers/videosReducer";
-import { VIDEO_TYPES } from "./actions/videosActions";
-import {
-  selectedVideoInitialState,
-  selectedVideoReducer,
-} from "./reducers/selectedVideoReducer";
-import { TYPES_SELECTED_VIDEO } from "./actions/selectedVideoActions";
+import { appReducer, initialState } from "./reducers/appReducer";
+import { TYPES } from "./actions/appActions";
+import Header from "./components/header/Header";
 
 const App = () => {
-  const [videoSelectedState, dispatchVideoSelected] = useReducer(
-    selectedVideoReducer,
-    selectedVideoInitialState
-  );
-  const [videosState, dispatchVideos] = useReducer(
-    videosReducer,
-    videosInitialState
-  );
+  const [state, dispatch] = useReducer(appReducer, initialState);
 
   const handleSubmit = async (searchTerm) => {
     const {
@@ -29,9 +18,9 @@ const App = () => {
       },
     });
 
-    dispatchVideos({ type: VIDEO_TYPES.SERCH_VIDEOS, payload: videos });
-    dispatchVideoSelected({
-      type: TYPES_SELECTED_VIDEO.SELECT_VIDEO,
+    dispatch({ type: TYPES.SERCH_VIDEOS, payload: videos });
+    dispatch({
+      type: TYPES.SELECT_VIDEO,
       payload: videos[0],
     });
   };
@@ -44,13 +33,10 @@ const App = () => {
             <SearchBar onSubmit={handleSubmit} />
           </Grid>
           <Grid item xs={8}>
-            <VideoDetail video={videoSelectedState} />
+            <VideoDetail video={state.selectedVideo} />
           </Grid>
           <Grid item xs={4}>
-            <VideoList
-              videos={videosState}
-              handleVideoSelect={dispatchVideoSelected}
-            />
+            <VideoList videos={state.videos} handleVideoSelect={dispatch} />
           </Grid>
         </Grid>
       </Grid>

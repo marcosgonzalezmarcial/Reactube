@@ -3,9 +3,9 @@ import { Grid } from "@mui/material";
 import VideoItem from "./VideoItem";
 
 const VideoList = ({ videos, handleVideoSelect }) => {
-  const videosToRender = videos.videos;
+  // const videosToRender = videos.videos;
 
-  const renderedVideos = videosToRender.map((video) => (
+  const renderedVideos = videos.map((video) => (
     <VideoItem
       handleVideoSelect={handleVideoSelect}
       key={video.id.videoId}
