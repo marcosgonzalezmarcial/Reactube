@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import { Grid } from "@mui/material";
 import { SearchBar, VideoList, VideoDetail } from "./components";
 import youtubeFetch from "./api/youtubeFetch";
+import { videosInitialState, videosReducer } from "./reducers/videosReducer";
+import { VIDEO_TYPES } from "./actions/videosActions";
+import {
+  selectedVideoInitialState,
+  selectedVideoReducer,
+} from "./reducers/selectedVideoReducer";
+import { TYPES_SELECTED_VIDEO } from "./actions/selectedVideoActions";
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState({ id: {}, snippet: {} });
+  const [videoSelectedState, dispatchVideoSelected] = useReducer(
+    selectedVideoReducer,
+    selectedVideoInitialState
+  );
+  const [videosState, dispatchVideos] = useReducer(
+    videosReducer,
+    videosInitialState
+  );
 
   const handleSubmit = async (searchTerm) => {
     const {
@@ -15,8 +28,12 @@ const App = () => {
         q: searchTerm,
       },
     });
-    setVideos(videos);
-    setSelectedVideo(videos[0]);
+
+    dispatchVideos({ type: VIDEO_TYPES.SERCH_VIDEOS, payload: videos });
+    dispatchVideoSelected({
+      type: TYPES_SELECTED_VIDEO.SELECT_VIDEO,
+      payload: videos[0],
+    });
   };
 
   return (
@@ -27,10 +44,13 @@ const App = () => {
             <SearchBar onSubmit={handleSubmit} />
           </Grid>
           <Grid item xs={8}>
-            <VideoDetail video={selectedVideo} />
+            <VideoDetail video={videoSelectedState} />
           </Grid>
           <Grid item xs={4}>
-            <VideoList videos={videos} handleVideoSelect={setSelectedVideo} />
+            <VideoList
+              videos={videosState}
+              handleVideoSelect={dispatchVideoSelected}
+            />
           </Grid>
         </Grid>
       </Grid>

@@ -1,0 +1,5 @@
+const VIDEO_TYPES = {
+  SERCH_VIDEOS: "SERCH_VIDEOS",
+};
+
+export { VIDEO_TYPES };
