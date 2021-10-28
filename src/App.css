@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+}
+.main {
+  flex: 0.8;
+  /* background-color: #161523; */
+  background-color: #01011d;
+  color: #e7e7e9;
+}
+.sidebar {
+  flex: 0.2;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  /* background-color: #01011d; */
+  background-color: #161523;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Paper, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import "./SearchBar.css";
 
 const SearchBar = ({ onSubmit }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,17 +14,22 @@ const SearchBar = ({ onSubmit }) => {
       onSubmit(searchTerm);
     }
   };
+  const handleClick = (e) => {
+    e.preventDefault();
+    onSubmit(searchTerm);
+  };
 
   return (
-    <Paper elevation={6} style={{ padding: "25px" }}>
-      <TextField
-        fullWidth
-        label="Search..."
+    <div className="searchBar">
+      <SearchIcon onClick={handleClick} className="searchBar__Button" />
+      <input
+        placeholder="Buscar..."
+        type="text"
         value={searchTerm}
         onChange={handleChange}
         onKeyPress={onKeyPress}
       />
-    </Paper>
+    </div>
   );
 };
 

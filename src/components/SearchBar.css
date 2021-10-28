@@ -1,0 +1,30 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  padding: 10px;
+}
+
+.searchBar > input {
+  padding: 1rem 0.7rem;
+  flex: 1;
+  border: none;
+  color: #606971;
+  color: white;
+  background-color: #01011d;
+  font-size: 1rem;
+}
+.searchBar > input:focus-visible {
+  outline: 1px solid #606971 !important;
+  border-radius: 5px;
+}
+
+.searchBar__Button {
+  width: 40px !important;
+  height: 25px !important;
+  padding: 0.5rem 0 0.5rem 0;
+  color: gray;
+}
+.searchBar > input::placeholder {
+  font-weight: bold;
+}

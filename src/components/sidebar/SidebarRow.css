@@ -1,0 +1,26 @@
+.sidebarRow {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+.sidebarRow:hover {
+  background-color: #302e4d;
+  cursor: pointer;
+}
+
+.sidebarRow:hover > .sidebarRow__icon {
+  color: rgb(99, 99, 214);
+}
+
+.sidebarRow > h4 {
+  padding-left: 1rem;
+}
+
+.sidebarRow.selected {
+  background-color: #302e4d;
+}
+
+.sidebarRow.selected > .sidebarRow__icon {
+  color: rgb(99, 99, 214);
+}

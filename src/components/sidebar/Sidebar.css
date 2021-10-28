@@ -1,0 +1,36 @@
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarNav__logo__container {
+  display: flex;
+  align-items: center;
+  padding: 2rem 3rem 1rem 1rem;
+  background-color: #161523;
+  letter-spacing: 0.05rem;
+}
+
+.sidebarNav__logo__container:hover {
+  cursor: pointer;
+}
+.sidebarNav__logo {
+  height: 2.2rem;
+  object-fit: contain;
+}
+.sidebarNav__logo__title {
+  font-size: 1.2rem;
+  color: #e7e7e9;
+}
+
+.sidebarNav__menu {
+  margin-top: 5rem;
+  /* margin-bottom: 2rem; */
+  color: #e7e7e9;
+  letter-spacing: 0.1rem;
+}
+.sidebarNav__menu > h3 {
+  padding-left: 1.4rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
