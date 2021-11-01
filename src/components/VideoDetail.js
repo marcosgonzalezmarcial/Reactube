@@ -1,10 +1,18 @@
 import React from "react";
-import { Paper, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import "./VideoDetail.css";
 
 const VideoDetail = ({
   video: {
     id: { videoId },
-    snippet: { title, channelTitle, description },
+    snippet: { title, description },
   },
 }) => {
   if (!videoId) return <div>Loading...</div>;
@@ -13,22 +21,36 @@ const VideoDetail = ({
 
   return (
     <>
-      <Paper elevation={6} style={{ height: "70%" }}>
-        <iframe
-          frameBorder="0"
-          height="100%"
-          width="100%"
-          title="Video Player"
-          src={videoSrc}
-        />
-      </Paper>
-      <Paper elevation={6} style={{ padding: "15px" }}>
-        <Typography variant="h4">
-          {title} - {channelTitle}
-        </Typography>
-        <Typography variant="subtitle1">{channelTitle}</Typography>
-        <Typography variant="subtitle2">{description}</Typography>
-      </Paper>
+      <div className="videoDetail">
+        <Card className="videoDetail__card">
+          <iframe
+            frameBorder="0"
+            height="100%"
+            width="75%"
+            title="Video Player"
+            src={videoSrc}
+          />
+          <CardContent className="videoDetail__cardContent">
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <div className="videoDetail__cardContent__description">
+              <Typography
+                className="videoDetail__cardContent__description__text"
+                variant="body2"
+                color="text.secondary"
+              >
+                {description}
+              </Typography>
+            </div>
+            <CardActions className="videoDetail__cardActions">
+              <Button>
+                <FavoriteBorderIcon className="videoDetail__cardActions__button" />
+              </Button>
+            </CardActions>
+          </CardContent>
+        </Card>
+      </div>
     </>
   );
 };

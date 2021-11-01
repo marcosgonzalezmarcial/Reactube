@@ -1,11 +1,16 @@
 import { TYPES } from "../actions/appActions";
 
-const initialState = { videos: [], selectedVideo: { id: {}, snippet: {} } };
+const initialState = {
+  searchResults: [],
+  selectedVideo: { id: {}, snippet: {} },
+  relatedVideos: [],
+  // searchHistory: [],
+};
 
 const appReducer = (state, action) => {
   switch (action.type) {
     case TYPES.SERCH_VIDEOS:
-      return { ...state, videos: action.payload };
+      return { ...state, searchResults: action.payload };
     case TYPES.SELECT_VIDEO:
       return {
         ...state,
@@ -14,6 +19,14 @@ const appReducer = (state, action) => {
           snippet: action.payload.snippet,
         },
       };
+    case TYPES.RETRIEVE_POPULARVIDEOS:
+      return { ...state, relatedVideos: action.payload };
+    // case TYPES.SAVE_SEARCHTERMS:
+    // return {
+    // ...state,
+    // searchHistory: [...state.searchHistory, action.payload],
+    // searchHistory: action.payload,
+    // };
     default:
       return state;
   }

@@ -1,24 +1,64 @@
-import React, { useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import "./App.css";
-import { Grid } from "@mui/material";
-// import { VideoList, VideoDetail } from "./components";
 import youtubeFetch from "./api/youtubeFetch";
 import { appReducer, initialState } from "./reducers/appReducer";
 import { TYPES } from "./actions/appActions";
-import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
-import VideoList from "./components/VideoList";
-import VideoDetail from "./components/VideoDetail";
+import SearchPage from "./pages/SearchPage";
+import { Route, Switch } from "react-router";
+import { SearchBar } from "./components";
+import Home from "./pages/Home";
+import History from "./pages/History";
+import Favourites from "./pages/Favourites";
+import VideoDetailPage from "./pages/VideoDetailPage";
+import {
+  historyReducer,
+  HISTORY_TYPES,
+  initialHistory,
+} from "./reducers/historyReducer";
+import HistoryContext from "./context/HistoryContext";
+import StateContext from "./context/StateContext";
 
 const App = () => {
   const [state, dispatch] = useReducer(appReducer, initialState);
+  const [historyState, dispatchHistory] = useReducer(
+    historyReducer,
+    initialHistory
+  );
+  localStorage.setItem("searchHistory", JSON.stringify(historyState));
+
+  useEffect(() => {
+    const fetchRecommendedVideos = async () => {
+      const {
+        data: { items: videos },
+      } = await youtubeFetch.get("search", {
+        params: {
+          chart: "mostPopular",
+          maxResults: 4,
+        },
+      });
+      dispatch({ type: TYPES.RETRIEVE_POPULARVIDEOS, payload: videos });
+    };
+    fetchRecommendedVideos();
+  }, []);
 
   const handleSubmit = async (searchTerm) => {
+    const searchDate = Date.now();
     const {
       data: { items: videos },
     } = await youtubeFetch.get("search", {
       params: {
         q: searchTerm,
+        maxResults: 12,
+      },
+    });
+    dispatch({ type: TYPES.SAVE_SEARCHTERMS, payload: searchTerm });
+    dispatchHistory({
+      type: HISTORY_TYPES.ADD_SEARCHTERM,
+      payload: {
+        searchTerm: searchTerm,
+        url: videos[0].snippet.thumbnails.default.url,
+        searchDate: searchDate,
       },
     });
 
@@ -31,31 +71,44 @@ const App = () => {
 
   return (
     <>
-      <div className="app">
-        <div className="sidebar">
-          <Sidebar />
+      <StateContext.Provider
+        value={{ state: state, dispatch: dispatch, handleSubmit: handleSubmit }}
+      >
+        <div className="app">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+          <div className="main">
+            <SearchBar className="searchBar" />
+            <Switch>
+              <Route exact path="/home/videoDetail">
+                <VideoDetailPage />
+              </Route>
+              <Route exact path="/home/search">
+                <SearchPage />
+              </Route>
+              <Route exact path="/historial">
+                <History />
+              </Route>
+              <Route exact path="/favoritos">
+                <Favourites />
+              </Route>
+              <HistoryContext.Provider
+                value={{
+                  historyState: historyState,
+                }}
+              >
+                <Route path={"/home"} exact>
+                  <Home />
+                </Route>
+                <Route path="/" exact>
+                  <Home />
+                </Route>
+              </HistoryContext.Provider>
+            </Switch>
+          </div>
         </div>
-        <main className="main">
-          <Header onSubmit={handleSubmit} />
-          <section className="main__videos">
-            <Grid style={{ justifyContent: "center" }} container spacing={10}>
-              <Grid item xs={11.5}>
-                <Grid container spacing={2}>
-                  <Grid item xs={4}>
-                    <VideoList
-                      videos={state.videos}
-                      handleVideoSelect={dispatch}
-                    />
-                  </Grid>
-                  <Grid item xs={8}>
-                    <VideoDetail video={state.selectedVideo} />
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </section>
-        </main>
-      </div>
+      </StateContext.Provider>
     </>
   );
 };

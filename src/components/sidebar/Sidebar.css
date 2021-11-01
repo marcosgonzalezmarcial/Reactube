@@ -34,3 +34,8 @@
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
+
+.sidebarNav__link {
+  text-decoration: none;
+  color: white;
+}

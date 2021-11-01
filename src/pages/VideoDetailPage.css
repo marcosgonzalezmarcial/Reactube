@@ -1,0 +1,11 @@
+.videoDetailPage {
+  width: 100%;
+}
+
+.videoList__items {
+  flex-wrap: nowrap;
+}
+
+.videoDetailPage__app__title {
+  padding: 1rem 2rem;
+}

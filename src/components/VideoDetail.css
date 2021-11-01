@@ -1,0 +1,36 @@
+.videoDetail {
+  padding: 2rem 2rem 2rem 2rem;
+  /* width: 70vw; */
+  border-radius: 20px !important;
+}
+
+.videoDetail__card {
+  display: flex;
+  padding: 2rem;
+  height: 45vh;
+  border-radius: 20px !important;
+}
+
+.videoDetail__cardContent {
+  width: 60%;
+  padding-top: 0 !important;
+}
+
+.videoDetail__cardActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.videoDetail__cardActions__button {
+  color: red;
+  transform: scale(1.6);
+}
+/* .videoDetail__cardContent__description {
+  max-height: 300px !important;
+} */
+
+.videoDetail__cardContent__description__text {
+  max-height: 300px !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

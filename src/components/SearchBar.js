@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.css";
+import { useHistory } from "react-router";
+import StateContext from "../context/StateContext";
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = () => {
+  const { handleSubmit } = useContext(StateContext);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -11,12 +16,13 @@ const SearchBar = ({ onSubmit }) => {
 
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
-      onSubmit(searchTerm);
+      handleSubmit(searchTerm);
+      history.push("/home/search");
     }
   };
   const handleClick = (e) => {
-    e.preventDefault();
-    onSubmit(searchTerm);
+    handleSubmit(searchTerm);
+    history.push("/home/search");
   };
 
   return (

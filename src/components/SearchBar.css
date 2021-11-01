@@ -1,8 +1,7 @@
 .searchBar {
   display: flex;
   align-items: center;
-  width: 90%;
-  padding: 10px;
+  min-width: 15vw;
 }
 
 .searchBar > input {
@@ -13,6 +12,10 @@
   color: white;
   background-color: #01011d;
   font-size: 1rem;
+}
+.searchBar > input:hover {
+  outline: 1px solid #606971;
+  border-radius: 5px;
 }
 .searchBar > input:focus-visible {
   outline: 1px solid #606971 !important;
