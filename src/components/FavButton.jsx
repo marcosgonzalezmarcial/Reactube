@@ -1,14 +1,14 @@
 import { Button } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FavButton.css";
-import StateContext from "../context/StateContext";
+import { useAppContext } from "../context/StateContext";
 import { TYPES } from "../actions/appActions";
 
 const FavButton = ({ video }) => {
   const [selected, setSelected] = useState(false);
-  const { state, dispatch } = useContext(StateContext);
+  const { state, dispatch } = useAppContext();
 
   useEffect(() => {
     if (state.favouriteVideos.length > 0) {
@@ -17,7 +17,7 @@ const FavButton = ({ video }) => {
       );
       containVideo && setSelected(true);
     }
-  }, []);
+  }, [state.favouriteVideos, video.id.videoId]);
 
   const handleClick = async () => {
     setSelected(!selected);

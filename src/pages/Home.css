@@ -1,6 +1,5 @@
 .main__components {
   display: flex !important;
-  /* justify-content: space-between; */
 }
 .main__components__searches {
   width: 50%;

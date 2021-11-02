@@ -21,7 +21,7 @@ const VideoItem = ({ video, handleVideoSelect }) => {
           image={video.snippet.thumbnails.medium.url}
           alt="thumbnail"
           height="180px"
-          width="300px"
+          width="320px"
           src={video.snippet.thumbnails.medium.url}
           onClick={() => {
             handleVideoSelect({

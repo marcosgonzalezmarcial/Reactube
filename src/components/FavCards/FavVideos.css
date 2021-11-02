@@ -1,0 +1,13 @@
+.favVideos {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+/* .favVideos__item {
+  display: flex;
+  flex-wrap: wrap;
+} */

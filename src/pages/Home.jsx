@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { VideoList } from "../components";
 import LastSearches from "../components/LastSearches/LastSearches";
 import "./Home.css";
-import StateContext from "../context/StateContext";
-import FavButton from "../components/FavButton";
+import { useAppContext } from "../context/StateContext";
+import FavVideos from "../components/FavCards/FavVideos";
 
 const Home = () => {
-  const { state, dispatch } = useContext(StateContext);
+  const { state, dispatch } = useAppContext();
 
   return (
     <main className="searchPage">
@@ -18,7 +18,9 @@ const Home = () => {
         <div className="main__components__searches">
           <LastSearches />
         </div>
-        <div className="main__components__favs"></div>
+        <div className="main__components__favs">
+          <FavVideos />
+        </div>
       </section>
     </main>
   );
