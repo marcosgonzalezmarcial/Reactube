@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./App.css";
 import youtubeFetch from "./api/youtubeFetch";
 import { appReducer, initialState } from "./reducers/appReducer";
@@ -11,21 +11,16 @@ import Home from "./pages/Home";
 import History from "./pages/History";
 import Favourites from "./pages/Favourites";
 import VideoDetailPage from "./pages/VideoDetailPage";
-import {
-  historyReducer,
-  HISTORY_TYPES,
-  initialHistory,
-} from "./reducers/historyReducer";
-import HistoryContext from "./context/HistoryContext";
 import StateContext from "./context/StateContext";
 
 const App = () => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  const [historyState, dispatchHistory] = useReducer(
-    historyReducer,
-    initialHistory
+
+  localStorage.setItem("searchHistory", JSON.stringify(state.searchHistory));
+  localStorage.setItem(
+    "favouriteVideos",
+    JSON.stringify(state.favouriteVideos)
   );
-  localStorage.setItem("searchHistory", JSON.stringify(historyState));
 
   useEffect(() => {
     const fetchRecommendedVideos = async () => {
@@ -52,9 +47,8 @@ const App = () => {
         maxResults: 12,
       },
     });
-    dispatch({ type: TYPES.SAVE_SEARCHTERMS, payload: searchTerm });
-    dispatchHistory({
-      type: HISTORY_TYPES.ADD_SEARCHTERM,
+    dispatch({
+      type: TYPES.SAVE_SEARCHTERMS,
       payload: {
         searchTerm: searchTerm,
         url: videos[0].snippet.thumbnails.default.url,
@@ -93,18 +87,12 @@ const App = () => {
               <Route exact path="/favoritos">
                 <Favourites />
               </Route>
-              <HistoryContext.Provider
-                value={{
-                  historyState: historyState,
-                }}
-              >
-                <Route path={"/home"} exact>
-                  <Home />
-                </Route>
-                <Route path="/" exact>
-                  <Home />
-                </Route>
-              </HistoryContext.Provider>
+              <Route path={"/home"} exact>
+                <Home />
+              </Route>
+              <Route path="/" exact>
+                <Home />
+              </Route>
             </Switch>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { VideoList } from "../components";
 import LastSearches from "../components/LastSearches/LastSearches";
 import "./Home.css";
 import StateContext from "../context/StateContext";
+import FavButton from "../components/FavButton";
 
 const Home = () => {
   const { state, dispatch } = useContext(StateContext);
@@ -17,8 +18,7 @@ const Home = () => {
         <div className="main__components__searches">
           <LastSearches />
         </div>
-
-        <div className="main__components__favs">test</div>
+        <div className="main__components__favs"></div>
       </section>
     </main>
   );

@@ -5,13 +5,11 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { TYPES } from "../actions/appActions";
 import { useHistory } from "react-router";
 import moment from "moment";
+import FavButton from "./FavButton";
 
 const VideoItem = ({ video, handleVideoSelect }) => {
   const history = useHistory();
@@ -52,9 +50,7 @@ const VideoItem = ({ video, handleVideoSelect }) => {
               {moment(video.snippet.publishTime).fromNow()}
             </Typography>
             <CardActions className="videoItem__cardActions__buttonContainer">
-              <Button>
-                <FavoriteBorderIcon className="videoItem__cardActions__button" />
-              </Button>
+              <FavButton video={video} />
             </CardActions>
           </div>
         </CardContent>

@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 import StateContext from "../../context/StateContext";
 
 const LastSearchItem = ({ url, searchTerm, searchDate }) => {
-  const data = useContext(StateContext);
+  const { handleSubmit } = useContext(StateContext);
   const history = useHistory();
 
   return (
@@ -24,7 +24,7 @@ const LastSearchItem = ({ url, searchTerm, searchDate }) => {
           size="medium"
           variant="contained"
           onClick={() => {
-            data.handleSubmit(searchTerm);
+            handleSubmit(searchTerm);
             history.push("/home/search");
           }}
         >

@@ -1,23 +1,17 @@
 import React from "react";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import "./VideoDetail.css";
+import FavButton from "./FavButton";
 
 const VideoDetail = ({
-  video: {
+  video /*: {
     id: { videoId },
     snippet: { title, description },
-  },
+  },*/,
 }) => {
-  if (!videoId) return <div>Loading...</div>;
+  if (!video.id.videoId) return <div>Loading...</div>;
 
-  const videoSrc = `https://www.youtube.com/embed/${videoId}`;
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
   return (
     <>
@@ -32,7 +26,7 @@ const VideoDetail = ({
           />
           <CardContent className="videoDetail__cardContent">
             <Typography gutterBottom variant="h5" component="div">
-              {title}
+              {video.snippet.title}
             </Typography>
             <div className="videoDetail__cardContent__description">
               <Typography
@@ -40,13 +34,11 @@ const VideoDetail = ({
                 variant="body2"
                 color="text.secondary"
               >
-                {description}
+                {video.snippet.description}
               </Typography>
             </div>
             <CardActions className="videoDetail__cardActions">
-              <Button>
-                <FavoriteBorderIcon className="videoDetail__cardActions__button" />
-              </Button>
+              <FavButton video={video} />
             </CardActions>
           </CardContent>
         </Card>

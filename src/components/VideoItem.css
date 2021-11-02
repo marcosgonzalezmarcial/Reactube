@@ -37,10 +37,6 @@
   font-weight: bolder !important;
   font-size: 1rem !important;
 }
-.videoItem__cardActions__button {
-  color: red;
-  transform: scale(1.6);
-}
 
 .videoItem__cardActions__buttonContainer {
   padding-right: 0 !important;
