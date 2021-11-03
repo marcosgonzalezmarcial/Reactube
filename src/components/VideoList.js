@@ -1,9 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router";
+import { useAppContext } from "../context/StateContext";
 import VideoItem from "./VideoItem";
 import "./VideoList.css";
 
-const VideoList = ({ videos, handleVideoSelect }) => {
+const VideoList = ({ videos }) => {
+  const { dispatch } = useAppContext();
   const location = useLocation();
   function style() {
     if (location.pathname === "/home/search") {
@@ -13,7 +15,7 @@ const VideoList = ({ videos, handleVideoSelect }) => {
   const checkedVideos = videos.filter((video) => video.snippet);
   const renderedVideos = checkedVideos.map((video) => (
     <VideoItem
-      handleVideoSelect={handleVideoSelect}
+      handleVideoSelect={dispatch}
       key={video.id.videoId}
       video={video}
     />

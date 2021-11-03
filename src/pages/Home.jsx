@@ -6,13 +6,13 @@ import { useAppContext } from "../context/StateContext";
 import FavVideos from "../components/FavCards/FavVideos";
 
 const Home = () => {
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
 
   return (
     <main className="searchPage">
       <section className="main__videos">
         <h2 className="videoList__title">Videos populares</h2>
-        <VideoList videos={state.relatedVideos} handleVideoSelect={dispatch} />
+        <VideoList videos={state.relatedVideos} />
       </section>
       <section className="main__components">
         <div className="main__components__searches">

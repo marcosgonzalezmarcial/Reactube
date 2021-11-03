@@ -6,6 +6,8 @@ const initialState = {
   relatedVideos: [],
   searchHistory: JSON.parse(localStorage.getItem("searchHistory")) || [],
   favouriteVideos: JSON.parse(localStorage.getItem("favouriteVideos")) || [],
+  lastWatchedVideos:
+    JSON.parse(localStorage.getItem("lastWatchedVideos")) || [],
 };
 
 const appReducer = (state, action) => {
@@ -62,7 +64,28 @@ const appReducer = (state, action) => {
       } else {
         return state;
       }
-
+    case TYPES.SAVE_LASTWATCHED:
+      if (state.lastWatchedVideos.length > 0) {
+        const containVideo = state.lastWatchedVideos.find(
+          (video) => video.id.videoId === action.payload.id.videoId
+        );
+        if (containVideo) {
+          return {
+            ...state,
+            lastWatchedVideos: [...state.lastWatchedVideos],
+          };
+        } else {
+          return {
+            ...state,
+            lastWatchedVideos: [...state.lastWatchedVideos, action.payload],
+          };
+        }
+      } else {
+        return {
+          ...state,
+          lastWatchedVideos: [...state.lastWatchedVideos, action.payload],
+        };
+      }
     default:
       return state;
   }

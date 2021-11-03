@@ -3,12 +3,22 @@ import StateContext from "../../context/StateContext";
 import "./LastSearches.css";
 import LastSearchItem from "./LastSearchItem";
 
-const LastSearchs = () => {
+const LastSearches = () => {
   const { state } = useContext(StateContext);
 
   const orderedList = state.searchHistory.reverse();
 
   const max10ItemsList = orderedList.slice(0, 10);
+
+  /////// ESTILOS ÚLTIMO ITEM  /////////////
+  // const listLen = max10ItemsList.length;
+  // row.map((rank, i) => {
+  //   if (rowLen === i + 1) {
+  //     // last one
+  //   } else {
+  //     // not last one
+  //   }
+  // });
 
   const renderdedListItems = max10ItemsList.map((item) => {
     if (item) {
@@ -32,7 +42,7 @@ const LastSearchs = () => {
         {state.searchHistory.length > 0 ? (
           renderdedListItems
         ) : (
-          <p style={{ padding: "1rem" }}>
+          <p className="lastsearches__message">
             Aún no has realizado ninguna búsqueda
           </p>
         )}
@@ -41,4 +51,4 @@ const LastSearchs = () => {
   );
 };
 
-export default LastSearchs;
+export default LastSearches;

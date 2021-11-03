@@ -7,6 +7,7 @@ const fetchPopularVideos = async () => {
     params: {
       chart: "mostPopular",
       maxResults: 4,
+      q: "islands docu",
     },
   });
   return videos;

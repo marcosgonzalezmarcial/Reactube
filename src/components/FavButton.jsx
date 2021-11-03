@@ -11,13 +11,13 @@ const FavButton = ({ video }) => {
   const { state, dispatch } = useAppContext();
 
   useEffect(() => {
-    if (state.favouriteVideos.length > 0) {
+    if (state.favouriteVideos.length >= 0) {
       const containVideo = state.favouriteVideos.find(
         (item) => item.id.videoId === video.id.videoId
       );
-      containVideo && setSelected(true);
+      containVideo ? setSelected(true) : setSelected(false);
     }
-  }, [state.favouriteVideos, video.id.videoId]);
+  }, [state.favouriteVideos, video.id.videoId, selected]);
 
   const handleClick = async () => {
     setSelected(!selected);

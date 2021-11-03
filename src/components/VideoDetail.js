@@ -3,12 +3,7 @@ import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import "./VideoDetail.css";
 import FavButton from "./FavButton";
 
-const VideoDetail = ({
-  video /*: {
-    id: { videoId },
-    snippet: { title, description },
-  },*/,
-}) => {
+const VideoDetail = ({ video }) => {
   if (!video.id.videoId) return <div>Loading...</div>;
 
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
@@ -23,6 +18,7 @@ const VideoDetail = ({
             width="75%"
             title="Video Player"
             src={videoSrc}
+            allowFullScreen
           />
           <CardContent className="videoDetail__cardContent">
             <Typography gutterBottom variant="h5" component="div">

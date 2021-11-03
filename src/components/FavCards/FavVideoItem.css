@@ -15,11 +15,14 @@
 
 .favVideoItem {
   margin: 0.5rem;
+  margin-top: 0;
   position: relative;
-  height: 180px;
 }
 
 .favVideoItem img {
   border-radius: 20px;
   max-width: 320px;
+}
+.favVideoItem img:hover {
+  cursor: pointer;
 }

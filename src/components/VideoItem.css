@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   max-height: 290px;
-  /* min-width: 300px;
-  max-width: 400px; */
   width: 375px;
   margin-right: 2rem;
   border-radius: 20px !important;
@@ -14,7 +12,7 @@
 }
 
 .videoItem__info {
-  padding: 1rem;
+  padding: 0.95rem 1rem !important;
   background-color: white;
   color: black;
 }
@@ -35,7 +33,7 @@
 
 .videoItem__cardActions__text {
   font-weight: bolder !important;
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
 }
 
 .videoItem__cardActions__buttonContainer {
@@ -44,3 +42,6 @@
 .videoItem__cardActions__buttonContainer button {
   justify-content: flex-end !important;
 }
+/* .css-46bh2p-MuiCardContent-root:last-child {
+  padding: 0 !important;
+} */

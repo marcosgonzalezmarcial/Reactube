@@ -20,7 +20,11 @@ const App = () => {
       "favouriteVideos",
       JSON.stringify(state.favouriteVideos)
     );
-  }, [state.searchHistory, state.favouriteVideos]);
+    localStorage.setItem(
+      "lastWatchedVideos",
+      JSON.stringify(state.lastWatchedVideos)
+    );
+  }, [state.searchHistory, state.favouriteVideos, state.lastWatchedVideos]);
 
   return (
     <div className="app">

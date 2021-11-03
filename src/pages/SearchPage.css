@@ -1,7 +1,5 @@
 .videoList__items {
-  /* width: 100% !important; */
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
 }
 

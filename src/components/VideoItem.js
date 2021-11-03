@@ -10,8 +10,10 @@ import { TYPES } from "../actions/appActions";
 import { useHistory } from "react-router";
 import moment from "moment";
 import FavButton from "./FavButton";
+import { useAppContext } from "../context/StateContext";
 
 const VideoItem = ({ video, handleVideoSelect }) => {
+  const { dispatch } = useAppContext();
   const history = useHistory();
   return (
     <>
@@ -24,8 +26,12 @@ const VideoItem = ({ video, handleVideoSelect }) => {
           width="320px"
           src={video.snippet.thumbnails.medium.url}
           onClick={() => {
-            handleVideoSelect({
+            dispatch({
               type: TYPES.SELECT_VIDEO,
+              payload: video,
+            });
+            dispatch({
+              type: TYPES.SAVE_LASTWATCHED,
               payload: video,
             });
             history.push("/home/videoDetail");
