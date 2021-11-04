@@ -20,6 +20,10 @@ const FavVideoItem = ({ video, imgSrc }) => {
             type: TYPES.SELECT_VIDEO,
             payload: video,
           });
+          dispatch({
+            type: TYPES.SAVE_LASTWATCHED,
+            payload: video,
+          });
           history.push("/home/videoDetail");
         }}
         src={imgSrc}

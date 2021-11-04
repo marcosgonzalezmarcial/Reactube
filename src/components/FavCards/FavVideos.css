@@ -3,9 +3,9 @@
   padding-top: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
+  /* height: 400px; */
+  max-height: 493px;
+  overflow-y: auto;
 }
 
 .favVideos__title {
@@ -22,4 +22,9 @@
   justify-self: flex-start !important;
   width: 100%;
   margin-right: 3%;
+}
+
+.favVideos__title__container {
+  display: flex;
+  align-items: baseline;
 }

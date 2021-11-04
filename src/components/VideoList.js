@@ -10,6 +10,10 @@ const VideoList = ({ videos }) => {
   function style() {
     if (location.pathname === "/home/search") {
       return { display: "flex", flexWrap: "wrap", justifyContent: "center" };
+    } else if (location.pathname === "/historial") {
+      return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
+    } else if (location.pathname === "/favoritos") {
+      return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
     } else return { display: "flex", flexWrap: "nowrap" };
   }
   const checkedVideos = videos.filter((video) => video.snippet);

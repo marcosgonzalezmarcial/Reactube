@@ -1,27 +1,48 @@
+import { Avatar, Button } from "@mui/material";
+import moment from "moment";
 import React, { useContext } from "react";
+import { useHistory } from "react-router";
 import StateContext from "../../context/StateContext";
 import "./LastSearches.css";
 import LastSearchItem from "./LastSearchItem";
 
 const LastSearches = () => {
-  const { state } = useContext(StateContext);
+  const { state, handleSubmit } = useContext(StateContext);
+  const history = useHistory();
 
-  const orderedList = state.searchHistory.reverse();
+  const max10ItemsList = state.searchHistory.slice(-10).reverse();
 
-  const max10ItemsList = orderedList.slice(0, 10);
-
-  /////// ESTILOS ÚLTIMO ITEM  /////////////
-  // const listLen = max10ItemsList.length;
-  // row.map((rank, i) => {
-  //   if (rowLen === i + 1) {
-  //     // last one
-  //   } else {
-  //     // not last one
-  //   }
-  // });
-
-  const renderdedListItems = max10ItemsList.map((item) => {
-    if (item) {
+  ///// ESTILOS ÚLTIMO ITEM  /////////////
+  const listLen = max10ItemsList.length;
+  const renderdedListItems = max10ItemsList.map((item, i) => {
+    if (listLen === i + 1) {
+      return (
+        <div style={{ borderBottom: "none" }} className="lastsearches__item">
+          <div className="lastsearches__item__left">
+            <div className="lastsearches__item__left__avatar">
+              <Avatar src={item.url} />
+            </div>
+            <div className="lastsearches__item__left__text">
+              <h4>{item.searchTerm}</h4>·
+              <p>{moment(item.searchDate).fromNow()}</p>
+            </div>
+          </div>
+          <div className="lastsearches__item__right">
+            <Button
+              className="lastsearches__item__right__button"
+              size="medium"
+              variant="contained"
+              onClick={() => {
+                handleSubmit(item.searchTerm);
+                history.push("/home/search");
+              }}
+            >
+              Cargar videos
+            </Button>
+          </div>
+        </div>
+      );
+    } else {
       return (
         <>
           <LastSearchItem
@@ -33,8 +54,8 @@ const LastSearches = () => {
         </>
       );
     }
-    return null;
   });
+
   return (
     <div className="lastsearches">
       <h1 className="lastsearches__title">Últimas búsquedas</h1>

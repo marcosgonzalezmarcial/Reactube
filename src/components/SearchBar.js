@@ -16,13 +16,21 @@ const SearchBar = () => {
 
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
-      handleSubmit(searchTerm);
-      history.push("/home/search");
+      if (searchTerm === "") {
+        alert("El campo buscar no puede quedar vacío");
+      } else {
+        handleSubmit(searchTerm);
+        history.push("/home/search");
+      }
     }
   };
   const handleClick = (e) => {
-    handleSubmit(searchTerm);
-    history.push("/home/search");
+    if (searchTerm === "") {
+      alert("El campo buscar no puede quedar vacío");
+    } else {
+      handleSubmit(searchTerm);
+      history.push("/home/search");
+    }
   };
 
   return (

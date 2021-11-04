@@ -12,3 +12,7 @@ body {
   font-family: "Roboto", sans-serif;
   width: 100vw !important;
 }
+
+/* ::-webkit-scrollbar {
+  display: inherit;
+} */

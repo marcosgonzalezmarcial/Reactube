@@ -16,6 +16,27 @@ function StateProvider(props) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   useEffect(() => {
+    localStorage.setItem("searchHistory", JSON.stringify(state.searchHistory));
+    localStorage.setItem(
+      "favouriteVideos",
+      JSON.stringify(state.favouriteVideos)
+    );
+    localStorage.setItem(
+      "lastWatchedVideos",
+      JSON.stringify(state.lastWatchedVideos)
+    );
+    localStorage.setItem(
+      "lastSearchedVideos",
+      JSON.stringify(state.lastSearchedVideos)
+    );
+  }, [
+    state.searchHistory,
+    state.favouriteVideos,
+    state.lastWatchedVideos,
+    state.lastSearchedVideos,
+  ]);
+
+  useEffect(() => {
     const fetchVideos = async () => {
       const videos = await fetchPopularVideos();
       dispatch({ type: TYPES.RETRIEVE_POPULARVIDEOS, payload: videos });
@@ -39,6 +60,10 @@ function StateProvider(props) {
       dispatch({
         type: TYPES.SELECT_VIDEO,
         payload: videos[0],
+      });
+      dispatch({
+        type: TYPES.SAVE_LASTSEARCHES,
+        payload: [videos[0], videos[1]],
       });
     };
     fetchVideos();

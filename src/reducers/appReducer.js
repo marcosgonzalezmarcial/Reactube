@@ -8,6 +8,8 @@ const initialState = {
   favouriteVideos: JSON.parse(localStorage.getItem("favouriteVideos")) || [],
   lastWatchedVideos:
     JSON.parse(localStorage.getItem("lastWatchedVideos")) || [],
+  lastSearchedVideos:
+    JSON.parse(localStorage.getItem("lastSearchedVideos")) || [],
 };
 
 const appReducer = (state, action) => {
@@ -86,6 +88,11 @@ const appReducer = (state, action) => {
           lastWatchedVideos: [...state.lastWatchedVideos, action.payload],
         };
       }
+    case TYPES.SAVE_LASTSEARCHES:
+      return {
+        ...state,
+        lastSearchedVideos: [...state.lastSearchedVideos, ...action.payload],
+      };
     default:
       return state;
   }

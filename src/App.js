@@ -14,18 +14,6 @@ import { useAppContext } from "./context/StateContext";
 const App = () => {
   const { state } = useAppContext();
 
-  useEffect(() => {
-    localStorage.setItem("searchHistory", JSON.stringify(state.searchHistory));
-    localStorage.setItem(
-      "favouriteVideos",
-      JSON.stringify(state.favouriteVideos)
-    );
-    localStorage.setItem(
-      "lastWatchedVideos",
-      JSON.stringify(state.lastWatchedVideos)
-    );
-  }, [state.searchHistory, state.favouriteVideos, state.lastWatchedVideos]);
-
   return (
     <div className="app">
       <div className="sidebar">
