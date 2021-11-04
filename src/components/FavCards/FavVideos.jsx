@@ -6,10 +6,9 @@ import "./FavVideos.css";
 const FavVideos = () => {
   const { state } = useAppContext();
   const favVideos = state.favouriteVideos;
-  // const lastFavVideos = favVideos.slice(-4);
 
   const renderItems = favVideos.map((item) => (
-    <div className="favVideos__item">
+    <div key={item.id.videoId} className="favVideos__item">
       <FavVideoItem video={item} imgSrc={item.snippet.thumbnails.medium.url} />
     </div>
   ));

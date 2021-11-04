@@ -1,7 +1,7 @@
-.videoList__items {
+/* .videoList__items {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .videoItem {
   margin-bottom: 2rem;

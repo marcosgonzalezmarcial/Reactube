@@ -8,19 +8,25 @@ const VideoList = ({ videos }) => {
   const { dispatch } = useAppContext();
   const location = useLocation();
   function style() {
-    if (location.pathname === "/home/search") {
+    if (location.pathname.includes("/search/")) {
       return { display: "flex", flexWrap: "wrap", justifyContent: "center" };
     } else if (location.pathname === "/historial") {
       return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
     } else if (location.pathname === "/favoritos") {
       return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
-    } else return { display: "flex", flexWrap: "nowrap" };
+    } else if (location.pathname === "/home") {
+      return {
+        display: "flex",
+        flexWrap: "nowrap",
+        justifyContent: "flexStart",
+      };
+    }
   }
   const checkedVideos = videos.filter((video) => video.snippet);
   const renderedVideos = checkedVideos.map((video) => (
     <VideoItem
       handleVideoSelect={dispatch}
-      key={video.id.videoId}
+      key={video.id.videoId + Math.random()}
       video={video}
     />
   ));

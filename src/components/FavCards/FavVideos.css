@@ -3,7 +3,6 @@
   padding-top: 0;
   display: flex;
   flex-wrap: wrap;
-  /* height: 400px; */
   max-height: 493px;
   overflow-y: auto;
 }

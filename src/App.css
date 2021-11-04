@@ -1,18 +1,15 @@
 .app {
   display: flex;
-  /* width: 100%; */
 }
 .main {
   flex: 0.8;
-  width: 80vw !important;
-  /* max-width: 100vw; */
-  /* overflow: visible; */
+  width: 80% !important;
   background-color: #01011d;
   color: #e7e7e9;
 }
 .sidebar {
   flex: 0.2;
-  width: 20vw !important;
+  width: 20% !important;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -81,5 +78,8 @@
   }
   .MuiAvatar-root {
     position: inherit !important;
+  }
+  .videoList__items {
+    flex-wrap: wrap !important;
   }
 }

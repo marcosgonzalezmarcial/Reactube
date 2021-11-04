@@ -17,7 +17,11 @@ const LastSearches = () => {
   const renderdedListItems = max10ItemsList.map((item, i) => {
     if (listLen === i + 1) {
       return (
-        <div style={{ borderBottom: "none" }} className="lastsearches__item">
+        <div
+          key={Math.random() + Date.now()}
+          style={{ borderBottom: "none" }}
+          className="lastsearches__item"
+        >
           <div className="lastsearches__item__left">
             <div className="lastsearches__item__left__avatar">
               <Avatar src={item.url} />
@@ -44,18 +48,15 @@ const LastSearches = () => {
       );
     } else {
       return (
-        <>
-          <LastSearchItem
-            url={item.url}
-            searchTerm={item.searchTerm}
-            searchDate={item.searchDate}
-            key={item.url}
-          />
-        </>
+        <LastSearchItem
+          url={item.url}
+          searchTerm={item.searchTerm}
+          searchDate={item.searchDate}
+          key={Math.random() + Date.now()}
+        />
       );
     }
   });
-
   return (
     <div className="lastsearches">
       <h1 className="lastsearches__title">Últimas búsquedas</h1>

@@ -20,7 +20,7 @@ const SearchBar = () => {
         alert("El campo buscar no puede quedar vacío");
       } else {
         handleSubmit(searchTerm);
-        history.push("/home/search");
+        history.push(`/search/${searchTerm}`);
       }
     }
   };
@@ -29,7 +29,7 @@ const SearchBar = () => {
       alert("El campo buscar no puede quedar vacío");
     } else {
       handleSubmit(searchTerm);
-      history.push("/home/search");
+      history.push(`/search/${searchTerm}`);
     }
   };
 

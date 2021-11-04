@@ -11,7 +11,7 @@ const FavVideoItem = ({ video, imgSrc }) => {
   const history = useHistory();
   return (
     <div className="favVideoItem">
-      <div class="favVideoItem__overlay">
+      <div className="favVideoItem__overlay">
         <FavButton className="favVideoItem__favButton" video={video} />
       </div>
       <img
@@ -24,7 +24,7 @@ const FavVideoItem = ({ video, imgSrc }) => {
             type: TYPES.SAVE_LASTWATCHED,
             payload: video,
           });
-          history.push("/home/videoDetail");
+          history.push("/videoDetail");
         }}
         src={imgSrc}
         alt="video thumnail"

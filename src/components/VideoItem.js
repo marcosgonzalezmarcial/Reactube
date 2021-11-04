@@ -12,7 +12,7 @@ import moment from "moment";
 import FavButton from "./FavButton";
 import { useAppContext } from "../context/StateContext";
 
-const VideoItem = ({ video, handleVideoSelect }) => {
+const VideoItem = ({ video }) => {
   const { dispatch } = useAppContext();
   const history = useHistory();
   return (
@@ -34,7 +34,7 @@ const VideoItem = ({ video, handleVideoSelect }) => {
               type: TYPES.SAVE_LASTWATCHED,
               payload: video,
             });
-            history.push("/home/videoDetail");
+            history.push("/videoDetail");
           }}
           className="videoItem__cardMedia"
         />
