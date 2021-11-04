@@ -1,6 +1,6 @@
 # Reactube
 
-Este proyecto es una web para visualizar videos consumiendo datos desde la Api de Youtube. Responde a la entrega del trabajo final del curso realizado en la It Academy [https://www.barcelonactiva.cat/es/itacademy] de Barcelona Activa.
+Este proyecto es una web para visualizar videos consumiendo datos desde la Api de Youtube. Responde a la entrega del trabajo final del curso de React JS realizado en la It Academy [https://www.barcelonactiva.cat/es/itacademy] de Barcelona Activa.
 
 ## Comenzando 🚀
 
