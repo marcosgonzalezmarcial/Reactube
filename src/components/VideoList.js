@@ -8,12 +8,15 @@ const VideoList = ({ videos }) => {
   const { dispatch } = useAppContext();
   const location = useLocation();
   function style() {
-    if (location.pathname.includes("/search/")) {
+    if (location.pathname.includes("/search")) {
       return { display: "flex", flexWrap: "wrap", justifyContent: "center" };
     } else if (location.pathname === "/historial") {
       return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
     } else if (location.pathname === "/favoritos") {
-      return { display: "flex", flexWrap: "wrap", justifyContent: "flexStart" };
+      return {
+        display: "flex",
+        flexWrap: "wrap",
+      };
     } else if (location.pathname === "/home") {
       return {
         display: "flex",

@@ -8,13 +8,12 @@
   padding: 1rem 0.7rem;
   flex: 1;
   border: none;
-  color: #606971;
   color: white;
   background-color: #01011d;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .searchBar > input:hover {
-  outline: 1px solid #606971;
+  outline: 1px solid #7e878f;
   border-radius: 5px;
 }
 .searchBar > input:focus-visible {
@@ -30,4 +29,5 @@
 }
 .searchBar > input::placeholder {
   font-weight: bold;
+  color: #a7b6c2;
 }

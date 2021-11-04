@@ -59,7 +59,7 @@ const LastSearches = () => {
   });
   return (
     <div className="lastsearches">
-      <h1 className="lastsearches__title">Últimas búsquedas</h1>
+      <h1 className="lastsearches__title">{`Últimas búsquedas · ${renderdedListItems.length}`}</h1>
       <div className="lastsearches__itemsContainer">
         {state.searchHistory.length > 0 ? (
           renderdedListItems

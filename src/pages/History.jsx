@@ -27,7 +27,9 @@ const History = () => {
         }}
       />
       <section className="historyPage__lastSearches">
-        <h2 className="historyPage__lastSearched__title">Últimas búsquedas</h2>
+        <h2 className="historyPage__lastSearched__title">
+          {`Últimas búsquedas · ${max10videos.length}`}
+        </h2>
         {max10videos.length > 0 ? (
           <VideoList videos={max10videos.reverse()} />
         ) : (

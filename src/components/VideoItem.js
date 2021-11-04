@@ -35,6 +35,7 @@ const VideoItem = ({ video }) => {
               payload: video,
             });
             history.push("/videoDetail");
+            history.push({ search: `q=${video.id.videoId}` });
           }}
           className="videoItem__cardMedia"
         />

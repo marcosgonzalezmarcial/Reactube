@@ -81,5 +81,10 @@
   }
   .videoList__items {
     flex-wrap: wrap !important;
+    justify-content: center;
+  }
+  .favVideos {
+    justify-content: center;
+    overflow-y: visible !important;
   }
 }

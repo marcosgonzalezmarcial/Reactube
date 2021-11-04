@@ -21,7 +21,7 @@ const App = () => {
           <Route exact path="/videoDetail">
             <VideoDetailPage />
           </Route>
-          <Route exact path="/search/:searchterm">
+          <Route exact path="/search">
             <SearchPage />
           </Route>
           <Route exact path="/historial">
@@ -30,7 +30,7 @@ const App = () => {
           <Route exact path="/favoritos">
             <Favourites />
           </Route>
-          <Route path={"/home"} exact>
+          <Route path="/home" exact>
             <Home />
           </Route>
           <Route path="/" exact>

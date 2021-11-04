@@ -1,98 +1,34 @@
-# REACTUEBE
+# Reactube
 
-Este proyecto es una web para visualizar videos consumiendo datos desde la Api de Youtube. Responde a la entrega del trabajo final del curso que he realziado en la It Academy de Barcelona Activa y se utiliza principalmente la librería React JS.
+Este proyecto es una web para visualizar videos consumiendo datos desde la Api de Youtube. Responde a la entrega del trabajo final del curso realizado en la It Academy [https://www.barcelonactiva.cat/es/itacademy] de Barcelona Activa.
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-Descarga el proyecto desde Github. Una vez lo tengas en tu ordenador puedes abrirlo utilizando tu editor de código preferido.
+Descarga el proyecto desde Github.
 
 ### Pre-requisitos 📋
 
-No hay prerequisitos para este proyecto.
+_Debes tener instalado en tu ordenador_
+[Node.js](https://nodejs.org/es/)
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
+Descarga el proyecto desde Github. Una vez lo tengas en tu ordenador puedes abrirlo utilizando tu editor de código preferido.
+Una vez abierto el proyecto, debes abrir la terminal de tu ordenador y entrar a la carpeta del proyecto. Una vez dentro debes introducir el comando: `npm i` para instalar todas las dependencias necesarias. Una vez tengas instaladas las dependencias vuelves a la consola o terminal del ordenador y ejecutas el comando: `npm start` y listo, ya estás ejecutando la app.
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+_Para realizar este proyecto se han utilizado las siguientes tecnologías_
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-- [Maven](https://maven.apache.org/) - Manejador de dependencias
-- [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+- [Git](https://git-scm.com/) - Sistema de control de versiones
+- [React](https://es.reactjs.org/) - El framework web
+- [npm](https://docs.npmjs.com/about-package-readme-files) - El majador de dependencias
+- [Material UI](https://mui.com/) - La libreria de estilos y componentes
 
-## Contribuyendo 🖇️
+## Autor ✒️
 
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-- **Andrés Villanueva** - _Trabajo Inicial_ - [villanuevand](https://github.com/villanuevand)
-- **Fulanito Detal** - _Documentación_ - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto.
+- **Marcos Patricio González Marcial** - [marcosgonzalezmarcial](https://github.com/marcosgonzalezmarcial)
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-- Comenta a otros sobre este proyecto 📢
-- Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
-- Da las gracias públicamente 🤓.
-- etc.
-
----
-
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+Este es proyecto de código libre. Cualqueir persona es libre de utilizarlo y modificarlo si así lo desea.
