@@ -9,3 +9,9 @@
 .videoDetailPage__app__title {
   padding: 1rem 2rem;
 }
+.videoDetailPage__loaderContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

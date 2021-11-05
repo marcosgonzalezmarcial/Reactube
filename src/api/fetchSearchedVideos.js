@@ -6,7 +6,7 @@ const fetchRelatedVideos = async (searchTerm) => {
   } = await youtubeFetch.get("search", {
     params: {
       q: searchTerm,
-      maxResults: 10,
+      maxResults: 5,
     },
   });
   return videos;
