@@ -22,16 +22,15 @@ const SearchBar = () => {
         handleSubmit(searchTerm);
         history.push("/search");
         history.push({ search: `q=${searchTerm}` });
-        // history.push(`/search/${searchTerm}`);
       }
     }
   };
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (searchTerm === "") {
       alert("El campo buscar no puede quedar vacío");
     } else {
-      handleSubmit(searchTerm);
-      history.push(`/search/${searchTerm}`);
+      history.push("/search");
+      history.push({ search: `q=${searchTerm}` });
     }
   };
 

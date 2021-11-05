@@ -25,7 +25,8 @@ const LastSearchItem = ({ url, searchTerm, searchDate }) => {
           variant="contained"
           onClick={() => {
             handleSubmit(searchTerm);
-            history.push(`/search/${searchTerm}`);
+            history.push("/search");
+            history.push({ search: `q=${searchTerm}` });
           }}
         >
           Cargar videos
